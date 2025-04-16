@@ -16,13 +16,39 @@
             }
         .center {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 800;
+  margin-right: 300;
   max-width: 100%;
-  height: 500px
+  height: 500px;
+            border-radius: 0px;
+            box-shadow: 0 0 0px rgba(0, 0, 0, 0);
+            margin: 0em;
+            border: 3px double #f270da; 
+
+        }
+        .button3 {
+            all: unset;
+            position: absolute;
+            top: 100px; /* change this to position it vertically */
+            right: 70px;
+            font-family: "Courier New", monospace;
+            font-size: 16px;
+            text-align: center;
+            color: violet;
+                max-width: auto;
+                height:auto;
+        }
 }
+
+
+
+     
+
+     button, a {
+        cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
      }
         body {
+            cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
             width: 100%;
             height: 100%;
             font-size: 12px;
@@ -30,7 +56,13 @@
        
         }
         h1 {
-            font-family: "courier new", monospace;
+            font-family: "Snell Roundhand", "bradley hand", "lucida calligraphy", "apple chancery", cursive;
+            
+        }
+        h2 {
+            font-family: "bradley hand", "apple chancery", cursive; 
+            
+            
         }
         .wrapper {
             padding: 1.5rem;
@@ -49,18 +81,104 @@
             background-color: rgb(227, 215, 236);
             width: 50%;
         }
+
+            .draggable {
+            width: 100px;
+         position: absolute;
+         cursor: grab;
+         z-index: 999;
+         transition: transform 0.5s ease;
+        }
+
+/* Bounce animation definition */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    30% { transform: translateY(-15px); }
+    50% { transform: translateY(0); }
+    70% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Bounce effect class */
+.bounce {
+    animation: bounce 0.6s ease-in-out;
+ }
+  
+            
+       
+
     </style>
 </head>
 <body>
-   <img src=image/title-01.png style="width: 550px; height: 300px;">
+   <img src=image/title-01.png style="width: 680px; height: 430px;">
    <h1>Welcome to my Interactive Media Workbook!</h1>
    <h2>[GDES30008]</h2>
    <div class="container">
     <a href="my_digital_garden/index.html">
     <button class="button3">Click the image below to enter My Digital Garden. ⋆˙⟡🌷
-   <img id= "monet" src="https://www.claude-monet.com/assets/img/paintings/water-lily-pond-with-japanese-bridge.jpg" alt="Monet's Water Lily Pond" class="center">
+   <img id= "monet" src="https://www.claude-monet.com/assets/img/paintings/water-lily-pond-with-japanese-bridge.jpg" 
+   alt="Monet's Water Lily Pond" class="center"
+   style="top: 500px; left: 900px;">
   </button>
    </a>
 </div>
+
+<img src="https://i.pinimg.com/originals/35/b2/9a/35b29a57bbfd491a23cf106529acc762.gif" 
+class="draggable" id="gif1" 
+style="top: 100px; left: 470px;"/>
+
+<img src="https://i.pinimg.com/originals/35/b2/9a/35b29a57bbfd491a23cf106529acc762.gif" 
+class="draggable" id="gif1" 
+style="top: 250px; left: 65px;"/>
+
+<img src="https://media.tenor.com/HHyhcUbFFjIAAAAj/cherry-blossom.gif"
+class="draggable" id="gif1" 
+style="top: 170px; left: 20px;"/>
+
+<img src="https://media.tenor.com/HHyhcUbFFjIAAAAj/cherry-blossom.gif" 
+class="draggable" id="gif2" 
+style="top: 140px; left: 550px;"/> 
+
+
+<script>
+   const draggables = document.querySelectorAll('.draggable');
+  
+  draggables.forEach(el => {
+      el.addEventListener('mousedown', dragMouseDown);
+
+      function dragMouseDown(e) {
+          e.preventDefault();
+          let pos3 = e.clientX;
+          let pos4 = e.clientY;
+
+          // Remove previous bounce effect (if any)
+          el.classList.remove('bounce');
+
+          document.onmouseup = closeDragElement;
+          document.onmousemove = elementDrag;
+
+          function elementDrag(e) {
+              e.preventDefault();
+              const pos1 = pos3 - e.clientX;
+              const pos2 = pos4 - e.clientY;
+              pos3 = e.clientX;
+              pos4 = e.clientY;
+
+              el.style.top = (el.offsetTop - pos2) + "px";
+              el.style.left = (el.offsetLeft - pos1) + "px";
+          }
+
+          function closeDragElement() {
+              // Stop dragging and apply bounce effect
+              document.onmouseup = null;
+              document.onmousemove = null;
+
+              // Apply the bounce animation when the drag ends
+              el.classList.add('bounce');
+          }
+      }
+  });
+  </script> 
+
 </body>
 </html>
