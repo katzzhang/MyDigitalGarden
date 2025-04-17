@@ -7,13 +7,19 @@
     <style>
      *{
       .grid-content {
-            width: 100vh;
-            height: 100vh;
-            display: grid;
-            grid-template-columns:1fr 1fr 1fr;
-            grid-gap: 0px;
-            place-content: center;
-            margin: auto;
+        width: 100vw;
+        height: auto;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 30px; /* this spaces out the week buttons nicely */
+        place-content: center;
+        margin: auto;
+        padding-top: 400px;
+        top: 0;
+        column-gap: 30px;
+        row-gap: 40px;
+
+            
           }
        
         .img {
@@ -28,14 +34,50 @@
         #weeks {
             width: 250px;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 0px;
+            box-shadow: 0 0 0px rgba(0, 0, 0, 0);
             transition: transform 0.3s ease-in-out;
             margin: 0em;
+            z-index: 0;
+            position: absolute;
+            margin-top: -430px;
+           
         }
         #weeks:hover {
             transform: scale(1.2);
         }
+        .grass {
+            max-width: auto;
+            max-height: auto;
+            display: inline-block;
+            margin-top: 0em;
+            margin-bottom: 0em;
+
+        }
+
+        @keyframes fadeInPetal {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+  .weeks {
+  opacity: 0; /* Start invisible */
+  animation: fadeInPetal 1.2s ease-out forwards;
+  animation-delay: 0.3s;
+  transition: transform 0.3s ease-in-out;
+  margin-top: 100px; /* move them down */
+  width: 200px;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+}
 
 .homepagebutton {
   border: none;
@@ -45,9 +87,9 @@
   text-decoration: none;
   display: block;
   font-size: 16px;
-  font-family: "courier new", monospace;
+  font-family: "Snell Roundhand", "bradley hand", "lucida calligraphy", "apple chancery", cursive;
   margin: auto;
-  cursor: pointer;
+  cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
   position: absolute;
   top: 18%;
   left: 90%;
@@ -57,7 +99,11 @@
 .homepagebutton {background-color: #000000;} 
             
      }
+     button, a {
+        cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
+     }
         body {
+            cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
             width: 100vw;
             height: 100vh;
             font-size: 12px;
@@ -72,34 +118,125 @@
             line-height: 0em;
         }
         h2 {
-            font-family: "courier new", monospace;
-            color: rgb(132, 127, 144);
+            font-family: "Optima", "Arial", sans-serif;
+            color: rgb(26, 143, 92);
             font-size: 16px;
             line-height: 0em;
-            margin: 0em;
-            margin-bottom: 0em;
-            padding: 0em;
+            margin: 0;
+            margin-bottom: 0;
+            padding: 0;
             text-align: center;
+            z-index: 120;
+
+         } 
+         .draggable-text {
+    position: absolute; 
+    top: 50%; /* Position it vertically in the middle */
+    right: 0; /* Position it on the right side */
+    font-family: "Snell Roundhand", "bradley hand", "lucida calligraphy", "apple chancery", cursive;
+    color: rgb(26, 143, 92);
+    font-size: 24px;
+    padding: 0px;
+    cursor: grab; /* Indicate that it's draggable */
+    z-index: 1000; /* Make sure it's above other elements */
+    border-radius: 0px;
+    
+    top: 35%;
+    left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; /* Using flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+
+
+}
+
+         .draggable-text2 {
+    position: absolute; 
+    top: 50%; /* Position it vertically in the middle */
+    right: 0; /* Position it on the right side */
+    font-family: "Snell Roundhand", "bradley hand", "lucida calligraphy", "apple chancery", cursive;
+    color: rgb(26, 143, 92);
+    font-size: 24px;
+    padding: 0px;
+    cursor: url('http://www.rw-designer.com/cursor-extern.php?id=132744'), auto;
+    z-index: 1000; /* Make sure it's above other elements */
+    border-radius: 0px;
+    
+    top: 35%;
+    left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex; /* Using flexbox */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+
+}
+
+
+/* Dragging effect */
+.draggable-text:active {
+    cursor: grabbing;
             
         }
         .workbooktitle {
-            padding: 1.5rem;
+            padding: 0;
             display: flex;
             flex-direction: row-reverse;
             background-color: rgb(211, 247, 247);
-            margin: 0em;
-            margin-bottom: 0em;
+            margin: 0;
+            margin-bottom: 0;
             place-content: center;
             line-height: 0em;
+            margin-top: 0;
         }
+    
+
+.draggable {
+width: 100px;
+position: absolute;
+cursor: grab;
+z-index: 999;
+transition: transform 0.5s ease;
+}
+
+/* Bounce animation definition */
+@keyframes bounce {
+0% { transform: translateY(0); }
+30% { transform: translateY(-15px); }
+50% { transform: translateY(0); }
+70% { transform: translateY(-10px); }
+100% { transform: translateY(0); }
+}
+
+/* Bounce effect class */
+.bounce {
+animation: bounce 0.6s ease-in-out;
+
+}
+
+.grass {
+width: 100%;
+position: absolute;
+top: 500px;
+z-index: 0;
+}
+
     </style>
 </head>
 <body>
     
    <img id= "workbooktitle" src="../image/my-workbook-title-02.png" 
    alt= "workbooktitle" 
-   style= "width: 700px; height: 350px;">
-   <h2>Click on a flower!</h2>
+   style= "width: 650px; height: 320px;">
+
+   <div class="draggable-text" id="draggable-text">
+    Click on a flower!
+   </div>
+
+   <div class="draggable-text2" id="draggable-text2" style="top: 850px; left: 1050px;">
+    Draggable garden elements!
+   </div>
+
 <div class="grid-content">
 
    <a href="./week1/index.html"> 
@@ -107,7 +244,8 @@
    <img id ="weeks" 
    src="../image/three-flowers-01.jpeg" 
    class="img" 
-   style="width: 200px; height: 450px;">
+   style="width: 200px; height: 450px;"
+   style="animation-delay: 0.2s;">
    </a>
 
    <a href="./week2/index.html">
@@ -115,7 +253,8 @@
     <img id ="weeks" 
     src="../image/three-flowers-02.jpeg"  
     class="img"
-    style="width: 200px; height: 450px;">
+    style="width: 200px; height: 450px;"
+    style="animation-delay: 0.4s;">
     </a>
 
     <a href="./week3/index.html">
@@ -123,13 +262,176 @@
     <img id ="weeks" 
     src="../image/three-flowers-03.jpeg" 
     class="img"
-    style="width: 200px; height: 450px;">
+    style="width: 200px; height: 450px;"
+    style="animation-delay: 0.6s;">
     </a>
+
+    <a href="./week4/index.html">
+        <rel= prev, next> 
+        <img id ="weeks" 
+        src="../image/flower-4.jpeg" 
+        class="img"
+        style="width: 200px; height: 450px;"
+        style="animation-delay: 0.8s;">
+        </a>
+
+        <a href="./week5/index.html">
+            <rel= prev, next> 
+            <img id ="weeks" 
+            src="../image/flower-5.jpeg" 
+            class="img"
+            style="width: 200px; height: 450px;"
+            style="animation-delay: 1.0s;">
+            </a>
+
+           <a href="./week6/index.html">
+                <rel= prev, next> 
+                <img id ="weeks" 
+                src="../image/flower-6.jpeg" 
+                class="img"
+                style="width: 200px; height: 450px;"
+                style="animation-delay: 1.2s;">
+                </a>
 </div>  
 
 <a href="../index.html">
     <button class="homepagebutton">Home</button>
     </a>
+
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
+    " class="draggable" id="gif3" 
+    style="top: 360px; left: 820px;" /> 
+
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
+    " class="draggable" id="gif3" 
+    style="top: 210px; left: 90px;" /> 
+
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
+    " class="draggable" id="gif3" 
+    style="top: 150px; left: 1080px;" /> 
+
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
+    " class="draggable" id="gif3" 
+    style="top: 730px; left: 960px;" /> 
+
+    <img src="https://media3.giphy.com/media/fYwJTVVLA1gqGiR6LU/giphy.gif?cid=6c09b952jaon3nk02zog33upfz8f0wr3jzi5rhsw36w7r1q8&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+     class="draggable" id="gif3" 
+    style="top: 800px; left: 1200px;"
+    z-index="1000" /> 
+
+    <img src="https://media3.giphy.com/media/fYwJTVVLA1gqGiR6LU/giphy.gif?cid=6c09b952jaon3nk02zog33upfz8f0wr3jzi5rhsw36w7r1q8&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+    class="draggable" id="gif3" 
+   style="top: 800px; left: 550px;"
+   z-index="1000" /> 
+
+   <img src="https://media1.giphy.com/media/VzCYLSYjwmYjvZFyut/giphy.gif?cid=6c09b95299bay0k6d0qh6n33wmrluozvsngb5kp5q4oc0avr&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+   class="draggable" id="gif3" 
+   style="top: 600px; left: 1200px;"
+   z-index="1000" /> 
+
+   <img src="https://i.pinimg.com/originals/b8/65/ca/b865ca6dc3dae85d1d0d61e4a37a2925.gif"
+   class="draggable" id="gif3" 
+   style="top: 880px; left: 1000px;"
+   z-index="1000" /> 
+
+   <img src="https://i.pinimg.com/originals/e7/72/b3/e772b3d571574c918163db7650bf5f3f.gif"
+   class="draggable" id="littleleaf" 
+   style="top: 720px; left: 140px;"
+   z-index="1000" /> 
+
+   <img src="https://static.wixstatic.com/media/624a09_63fc701f166a4b768386e0e336bba8af~mv2.gif/v1/fit/w_194,h_280,q_75,enc_avif,quality_auto/624a09_63fc701f166a4b768386e0e336bba8af~mv2.gif"
+   class="draggable" id="leaf2" 
+   style="top: 690px; left: 830px;"
+   z-index="1000" /> 
+
+   <img src="https://media3.giphy.com/media/BOQ9Phek6KY8q1bw06/giphy.gif?cid=6c09b9520iia1so4aajradk3ksjive6xlyr8zp19qq4pmmzk&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=s"
+    class="draggable" id="bee" 
+   style="top: 650px; left: 400px;"
+   z-index="1000" /> 
+
+    <img id ="grass" 
+    src="https://i.pinimg.com/originals/4d/d2/d0/4dd2d0a50f3f58f70f8c664cacbb0568.gif"
+    class="grass" 
+    style="width: 100%; height: 550px;;"
+    z-index="999"/> 
+
+
+
+<script>
+   const draggables = document.querySelectorAll('.draggable',);
+  
+  draggables.forEach(el => {
+      el.addEventListener('mousedown', dragMouseDown);
+
+      function dragMouseDown(e) {
+          e.preventDefault();
+          let pos3 = e.clientX;
+          let pos4 = e.clientY;
+
+          // Remove previous bounce effect (if any)
+          el.classList.remove('bounce');
+
+          document.onmouseup = closeDragElement;
+          document.onmousemove = elementDrag;
+
+          function elementDrag(e) {
+              e.preventDefault();
+              const pos1 = pos3 - e.clientX;
+              const pos2 = pos4 - e.clientY;
+              pos3 = e.clientX;
+              pos4 = e.clientY;
+
+              el.style.top = (el.offsetTop - pos2) + "px";
+              el.style.left = (el.offsetLeft - pos1) + "px";
+          }
+
+          function closeDragElement() {
+              // Stop dragging and apply bounce effect
+              document.onmouseup = null;
+              document.onmousemove = null;
+
+              // Apply the bounce animation when the drag ends
+              el.classList.add('bounce');
+          }
+      }
+  });
+
+  const draggable = document.getElementById('draggable-text', 'draggable-text2');
+
+
+draggable.addEventListener('mousedown', dragMouseDown);
+
+let offsetX, offsetY;
+
+function dragMouseDown(e) {
+    e.preventDefault();
+    
+    // Get the mouse position on mouse down
+    offsetX = e.clientX - draggable.offsetLeft;
+    offsetY = e.clientY - draggable.offsetTop;
+
+    document.addEventListener('mousemove', elementDrag);
+    document.addEventListener('mouseup', closeDragElement);
+}
+
+function elementDrag(e) {
+    e.preventDefault();
+
+    // Calculate new position
+    const newX = e.clientX - offsetX;
+    const newY = e.clientY - offsetY;
+
+    // Set the new position of the element
+    draggable.style.left = newX + 'px';
+    draggable.style.top = newY + 'px';
+}
+
+function closeDragElement() {
+    // Stop dragging
+    document.removeEventListener('mousemove', elementDrag);
+    document.removeEventListener('mouseup', closeDragElement);
+}
+  </script> 
 
 
 </body>
