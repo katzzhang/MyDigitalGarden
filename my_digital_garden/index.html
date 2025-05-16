@@ -5,19 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Workbook</title>
     <style>
-     *{
+     *{ 
       .grid-content {
-        width: 100vw;
+        width: auto;
         height: auto;
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 30px; /* this spaces out the week buttons nicely */
+        grid-template-columns: repeat(9, 1fr);
+     
+        gap: 20px; /* this spaces out the week buttons nicely */
         place-content: center;
         margin: auto;
         padding-top: 400px;
         top: 0;
         column-gap: 30px;
         row-gap: 40px;
+        overflow-x: hidden;
 
             
           }
@@ -32,7 +34,7 @@
         }
         
         #weeks {
-            width: 250px;
+            width: auto;
             height: auto;
             border-radius: 0px;
             box-shadow: 0 0 0px rgba(0, 0, 0, 0);
@@ -71,10 +73,11 @@
   animation-delay: 0.3s;
   transition: transform 0.3s ease-in-out;
   margin-top: 100px; /* move them down */
-  width: 200px;
+  width: auto
   height: auto;
   border-radius: 20px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  overflow-x: hidden;
 }
 
 }
@@ -141,7 +144,7 @@
     z-index: 1000; /* Make sure it's above other elements */
     border-radius: 0px;
     
-    top: 35%;
+    top: 34%;
     left: 50%;
             transform: translate(-50%, -50%);
             display: flex; /* Using flexbox */
@@ -219,13 +222,14 @@ width: 100%;
 position: absolute;
 top: 500px;
 z-index: 0;
+overflow-x: hidden;
 }
 
     </style>
 </head>
 <body>
     
-   <img id= "workbooktitle" src="../image/my-workbook-title-02.png" 
+   <img id= "workbooktitle" src="../image2/myworkbooktitle.png" 
    alt= "workbooktitle" 
    style= "width: 650px; height: 320px;">
 
@@ -242,56 +246,85 @@ z-index: 0;
    <a href="./week1/index.html"> 
    <rel= prev, next> 
    <img id ="weeks" 
-   src="../image/three-flowers-01.jpeg" 
+   src="../image2/flower1.png" 
    class="img" 
-   style="width: 200px; height: 450px;"
+   style="width: 150px; height: 370px;"
    style="animation-delay: 0.2s;">
    </a>
 
    <a href="./week2/index.html">
    <rel= prev, next> 
     <img id ="weeks" 
-    src="../image/three-flowers-02.jpeg"  
+    src="../image2/flower2.png"  
     class="img"
-    style="width: 200px; height: 450px;"
+    style="width: 150px; height: 370px;"
     style="animation-delay: 0.4s;">
     </a>
 
     <a href="./week3/index.html">
     <rel= prev, next> 
     <img id ="weeks" 
-    src="../image/three-flowers-03.jpeg" 
+    src="../image2/flower3.png" 
     class="img"
-    style="width: 200px; height: 450px;"
+    style="width: 150px; height: 370px;"
     style="animation-delay: 0.6s;">
     </a>
 
     <a href="./week4/index.html">
         <rel= prev, next> 
         <img id ="weeks" 
-        src="../image/flower-4.jpeg" 
+        src="../image2/flower4.png" 
         class="img"
-        style="width: 200px; height: 450px;"
+        style="width: 140px; height: 370px;"
         style="animation-delay: 0.8s;">
         </a>
 
         <a href="./week5/index.html">
             <rel= prev, next> 
             <img id ="weeks" 
-            src="../image/flower-5.jpeg" 
+            src="../image2/flower5.png" 
             class="img"
-            style="width: 200px; height: 450px;"
+            style="width: 130px; height: 370px;"
             style="animation-delay: 1.0s;">
             </a>
 
            <a href="./week6/index.html">
                 <rel= prev, next> 
                 <img id ="weeks" 
-                src="../image/flower-6.jpeg" 
+                src="../image2/flower6.png" 
                 class="img"
-                style="width: 200px; height: 450px;"
+                style="width: 130px; height: 370px;"
                 style="animation-delay: 1.2s;">
                 </a>
+
+          
+                
+                <a href="./week7/index.html">
+                    <rel= prev, next> 
+                    <img id ="weeks" 
+                    src="../image2/flower7.png" 
+                    class="img"
+                    style="width: 130px; height: 370px;"
+                    style="animation-delay: 1.2s;">
+                    </a>     
+                    
+                    <a href="./week8/index.html">
+                        <rel= prev, next> 
+                        <img id ="weeks" 
+                        src="../image2/flower8.png" 
+                        class="img"
+                        style="width: 130px; height: 370px;"
+                        style="animation-delay: 1.2s;">
+                        </a>
+
+                      <a href="./week9/index.html">
+                            <rel= prev, next> 
+                            <img id ="weeks" 
+                            src="../image2/flower9.png" 
+                            class="img"
+                            style="width: 130px; height: 370px;"
+                            style="animation-delay: 1.2s;">
+                            </a>
 </div>  
 
 <a href="../index.html">
@@ -300,7 +333,7 @@ z-index: 0;
 
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
     " class="draggable" id="gif3" 
-    style="top: 360px; left: 820px;" /> 
+    style="top: 480px; left: 750px;" /> 
 
     <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d86e2de9-b6b1-4acf-8fe2-d477471070b5/d9r5m7j-38295af7-eddf-43b3-85f2-d6e3f82eecb4.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4NmUyZGU5LWI2YjEtNGFjZi04ZmUyLWQ0Nzc0NzEwNzBiNVwvZDlyNW03ai0zODI5NWFmNy1lZGRmLTQzYjMtODVmMi1kNmUzZjgyZWVjYjQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.WsAauB2Jymkm5_72_q_noA0PSPJKMlMx-FwWFwEQm9o
     " class="draggable" id="gif3" 
